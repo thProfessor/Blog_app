@@ -1,0 +1,25 @@
+{
+  "blogs": [
+    {
+      "id": 1,
+      "title": "What is Lorem Ipsum?",
+      "body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+      "author": "Utkarsh",
+      "img": "https://images.unsplash.com/photo-1598770220477-cec551a23f53?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YXJ0aXN0aWN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
+    },
+    {
+      "id": 2,
+      "title": "What is Lorem Ipsum2?",
+      "body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+      "author": "Yash",
+      "img": "https://images.unsplash.com/photo-1632159336539-21104caef467?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=388&q=80"
+    },
+    {
+      "id": 3,
+      "title": "What is Lorem Ipsum3?",
+      "body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+      "author": "Suyahs",
+      "img": "https://images.unsplash.com/photo-1557933488-c8daa2a5772c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
+    }
+  ]
+}
