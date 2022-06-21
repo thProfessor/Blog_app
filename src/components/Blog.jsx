@@ -1,50 +1,43 @@
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Blog = ({ pending, setPending }) => {
-  const [blog, setBlog] = useState({});
   const { id } = useParams();
+  const [blog, setBlog] = useState({});
   const navigate = useNavigate();
+
+  useEffect(() => {
+    fetch("http://localhost:8000/blogs/1")
+      .then((res) => res.json())
+      .then((data) => setBlog(data));
+  }, [pending]);
 
   useEffect(() => {
     fetch(`http://localhost:8000/blogs/${id ? id : "1"}`)
       .then((res) => res.json())
-      .then((data) => setBlog(data));
-    setPending(false);
+      .then((data) => {
+        console.log(data);
+        setBlog(data);
+      });
   }, [id]);
 
-  useEffect(() => {
-    fetch(`http://localhost:8000/blogs/1`)
-      .then((res) => res.json())
-      .then((data) => setBlog(data));
-    setPending(false);
-  }, []);
-
-  const deletehandler = () => {
+  const deleteHandler = () => {
     fetch(`http://localhost:8000/blogs/${id}`, {
       method: "DELETE",
     }).then(() => {
-      setPending(true);
+      setPending(!pending);
       navigate("/");
     });
   };
+
   return (
-    <>
-      {id ? (
-        <div className="blogContainer" style={{ width: "48%" }}>
-          <img src={blog.img} alt="imgage 1" />
-          <h1>{blog.title}</h1>
-          <p>{blog.body}</p>
-          <button onClick={deletehandler}>Delete</button>
-        </div>
-      ) : (
-        <div className="blogContainer" style={{ width: "48%" }}>
-          <img src={blog.img} alt="imgage 1" />
-          <h1>{blog.title}</h1>
-          <p>{blog.body}</p>
-        </div>
-      )}
-    </>
+    <div className="blogContainer" style={{ maxWidth: "45%" }}>
+      <img src={blog.img} alt="" />
+      <h1>{blog.title}</h1>
+      <p>{blog.body}</p>
+      {blog ? <button onClick={deleteHandler}>Delete</button> : "Loading"}
+    </div>
   );
 };
 

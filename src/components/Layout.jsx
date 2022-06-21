@@ -1,6 +1,7 @@
-import React from "react";
-import { layout } from "../styles/homeStyle";
+import { layout } from "../styles/homeStyles";
 
-const Layout = ({ children }) => <main style={layout}>{children}</main>;
+const Layout = ({ children }) => {
+  return <main style={layout}>{children}</main>;
+};
 
 export default Layout;

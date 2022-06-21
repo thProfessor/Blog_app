@@ -1,15 +1,6 @@
-import { heading } from "../styles/homeStyle";
-import { motion } from "framer-motion";
+import React from "react";
+import { heading } from "../styles/homeStyles";
 
-const Heading = () => (
-  <motion.h1
-    initial={{ x: -200, opacity: 0 }}
-    animate={{ x: 0, opacity: 1 }}
-    transition={{ duration: 2 }}
-    style={heading}
-  >
-    THE BLOG
-  </motion.h1>
-);
+const Heading = () => <h1 style={heading}>THE BLOG</h1>;
 
 export default Heading;

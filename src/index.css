@@ -12,23 +12,22 @@ body {
 }
 
 ::selection {
-  background-color: white;
-  color: black;
+  background-color: black;
+  color: white;
 }
-
 span {
   cursor: pointer;
 }
+
 span:hover {
-  color: #fff;
+  color: white;
 }
 
 input,
 textarea,
-option,
 select {
-  border: none;
   border-radius: 0.5rem;
   padding: 1rem;
-  margin: 1rem 0.5rem;
+  border: none;
+  margin: 1rem;
 }

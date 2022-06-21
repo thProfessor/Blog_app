@@ -1,16 +1,13 @@
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
 import { colors } from "../styles/global";
-
-const List = ({ pending }) => {
+import { Link } from "react-router-dom";
+function List({ pending }) {
   const [blogs, setBlogs] = useState([]);
-
   useEffect(() => {
     fetch("http://localhost:8000/blogs")
       .then((res) => res.json())
       .then((data) => setBlogs(data));
   }, [pending]);
-
   return (
     <div
       style={{
@@ -29,8 +26,8 @@ const List = ({ pending }) => {
               display: "flex",
               alignItems: "flex-start",
               borderBottom: `1px solid ${colors.light}`,
-              textDecoration: "none",
               color: colors.text,
+              textDecoration: "none",
             }}
           >
             <div
@@ -40,15 +37,13 @@ const List = ({ pending }) => {
                 alignItems: "center",
                 width: "400px",
                 height: "150px",
-                overflow: "hidden",
-                marginRight: "1rem",
                 backgroundImage: `url("${blog.img}")`,
                 backgroundSize: "cover",
-                backgroundRepeat: "no-repeat",
                 marginBottom: "2rem",
+                overflow: "hidden",
+                marginRight: "1rem",
               }}
             ></div>
-
             <div
               style={{
                 display: "flex",
@@ -65,6 +60,6 @@ const List = ({ pending }) => {
       })}
     </div>
   );
-};
+}
 
 export default List;
