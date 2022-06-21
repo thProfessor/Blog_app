@@ -1,5 +1,7 @@
+import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import Blog from "./components/Blog";
+import Create from "./components/Create";
 import Heading from "./components/Heading";
 import Layout from "./components/Layout";
 import List from "./components/List";
@@ -7,6 +9,7 @@ import Navbar from "./components/Navbar";
 import { main } from "./styles/homeStyle";
 
 const App = () => {
+  const [pending, setPending] = useState(false);
   return (
     <Layout>
       <Navbar />
@@ -18,11 +21,18 @@ const App = () => {
 
       <div style={main}>
         <Routes>
-          <Route path="/" element={<Blog />} />
-          <Route path="/:id" element={<Blog />} />
+          <Route
+            path="/"
+            element={<Blog pending={pending} setPending={setPending} />}
+          />
+          <Route path="/create" element={<Create setPending={setPending} />} />
+          <Route
+            path="/:id"
+            element={<Blog pending={pending} setPending={setPending} />}
+          />
         </Routes>
 
-        <List />
+        <List pending={pending} />
       </div>
     </Layout>
   );

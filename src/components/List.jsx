@@ -2,13 +2,14 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { colors } from "../styles/global";
 
-const List = () => {
+const List = ({ pending }) => {
   const [blogs, setBlogs] = useState([]);
+
   useEffect(() => {
     fetch("http://localhost:8000/blogs")
       .then((res) => res.json())
       .then((data) => setBlogs(data));
-  }, []);
+  }, [pending]);
 
   return (
     <div
